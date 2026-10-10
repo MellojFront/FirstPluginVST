@@ -59,7 +59,8 @@ jobs:
       matrix:
         config: [Debug, Release]
 
-    runs-on: windows-latest
+    # ИСПРАВЛЕНО: Явно указываем версию ОС с установленной Visual Studio 2022
+    runs-on: windows-2022
 
     steps:
     - uses: ilammy/msvc-dev-cmd@v1 # use MSVC on Windows not minGW
@@ -81,4 +82,3 @@ jobs:
 
     - name: Test
       run: ctest --preset vs2022 -C ${{ matrix.config }}
-
